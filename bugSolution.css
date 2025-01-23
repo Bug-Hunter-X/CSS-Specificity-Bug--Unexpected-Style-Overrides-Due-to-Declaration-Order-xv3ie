@@ -1,0 +1,22 @@
+The solution is to reorder the CSS rules so that the most specific selector appears first:
+
+```css
+#myID.myClass div {
+  color: purple;
+}
+
+#myID div {
+  color: green;
+}
+
+.myClass div {
+  color: red;
+}
+
+div {
+  color: blue;
+}
+
+```
+
+By placing `#myID.myClass div` before `#myID div`, the more specific rule will always be applied regardless of the specificity calculation, thus fixing the bug.
